@@ -5,12 +5,7 @@ const loginButton = document.querySelector("#loginbtn");
 loginButton.addEventListener("click", async (e) => {
     e.preventDefault(); // Prevent default form submission behavior, stops refreshing the page
 
-    // Perform login logic here
-    console.log("Form Submitted")
-    console.log("Email:", email.value); //javascript treats htmls tag as objects so we can access the value property
-    console.log("Password:", password.value);
-
-    let loginUser = {
+    const loginUser = {
         email: email.value,
         password: password.value
     }
@@ -34,14 +29,19 @@ loginButton.addEventListener("click", async (e) => {
                 user.email.toLowerCase() === loginUser.email.toLowerCase() &&  user.password.toLowerCase() === loginUser.password.toLowerCase()
             )
         });
-
          console.log(authUser);
+         
          if(authUser) {
             alert("Login successful!"); // Show success message
+            localStorage.setItem("authuserid", authUser.id); // Store the authenticated user's ID in local storage
+
+            window.location.replace("http://127.0.0.1:5501/Project/src/pages/profile/profile.html")
          } else {
             alert("Invalid email or password!"); // Show error message
+            window.location.replace("http://127.0.0.1:5501/Project/src/pages/signup/signup.html")
          }
     } catch (error) {
         alert("Login failed!"); // Show error message
+    
     }
 })

@@ -3,10 +3,10 @@ function abc() {
 }
 
 function callBack(abc){
-    return abc;
+    return abc();
 }
 
-let res = callBack();
+let res = callBack(abc);
 console.log(res);
 
 console.log("--------------------------")
