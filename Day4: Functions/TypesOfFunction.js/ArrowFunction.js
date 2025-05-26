@@ -23,4 +23,7 @@ console.log(res);
 const multiply = (x,y) => x*y;
 console.log(multiply(10,5));
 
-
+const funcGreet = () => {
+  console.log("I am greeting function.")
+}
+funcGreet()

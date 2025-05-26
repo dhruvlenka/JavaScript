@@ -1,4 +1,5 @@
 let hof = [10,20,30,40,50];
+
 let result = hof.reduce((acc, ele) => {
     //console.log(acc, ele);
     return acc+ele;
